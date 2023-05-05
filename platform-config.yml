@@ -1,0 +1,39 @@
+vars:
+  BUNDLE_ID_IOS:
+    default: de.tobiasmuecksch.cap5test
+  PACKAGE_NAME_ANDROID:
+    default: de.tobiasmuecksch.cap5test
+  APP_NAME:
+    default: cap5 Test App
+
+platforms:
+  ios:
+    targets:
+      App:
+        bundleId: $BUNDLE_ID_IOS
+        version: 2.3.12
+        buildNumber: 255
+        productName: >-
+          "$(TARGET_NAME)"
+        displayName: $APP_NAME
+        infoPlist:
+          - CFBundleDevelopmentRegion: de_DE
+          - NSCameraUsageDescription: Uploading Images.
+          - NSPhotoLibraryAddUsageDescription: Saving Images.
+          - NSPhotoLibraryUsageDescription: Uploading Images.
+          - ITSAppUsesNonExemptEncryption: false
+        entitlements:
+          - aps-environment: "development"
+          - com.apple.developer.icloud-container-identifiers:
+              - "iCloud.$(PRODUCT_BUNDLE_IDENTIFIER)"
+          - com.apple.developer.icloud-services:
+              - "CloudDocuments"
+              - "CloudKit"
+          - com.apple.developer.ubiquity-container-identifiers:
+              - "iCloud.$(PRODUCT_BUNDLE_IDENTIFIER)"
+          - com.apple.developer.ubiquity-kvstore-identifier: $(TeamIdentifierPrefix)$(CFBundleIdentifier)
+
+  android:
+    packageName: $PACKAGE_NAME_ANDROID
+    versionName: 2.3.12
+    versionCode: 255
