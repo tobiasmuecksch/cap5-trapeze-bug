@@ -16,12 +16,14 @@ platforms:
         productName: >-
           "$(TARGET_NAME)"
         displayName: $APP_NAME
-        infoPlist:
-          - CFBundleDevelopmentRegion: de_DE
-          - NSCameraUsageDescription: Uploading Images.
-          - NSPhotoLibraryAddUsageDescription: Saving Images.
-          - NSPhotoLibraryUsageDescription: Uploading Images.
-          - ITSAppUsesNonExemptEncryption: false
+        plist:
+          replace: false
+          entries:
+            - CFBundleDevelopmentRegion: de_DE
+            - NSCameraUsageDescription: Uploading Images.
+            - NSPhotoLibraryAddUsageDescription: Saving Images.
+            - NSPhotoLibraryUsageDescription: Uploading Images.
+            - ITSAppUsesNonExemptEncryption: false
         entitlements:
           - aps-environment: "development"
           - com.apple.developer.icloud-container-identifiers:
